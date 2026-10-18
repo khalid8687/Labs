@@ -32,5 +32,9 @@ The calculator logic is isolated in a `Calculator` class and tested with Node's
 built-in test runner (no dependencies):
 
 ```bash
-node --test tests/calculator.test.js
+node --test tests/calculator.test.js tests/dom.test.js
 ```
+
+`tests/calculator.test.js` covers the arithmetic state machine;
+`tests/dom.test.js` uses a tiny DOM stub to check that the buttons in
+`index.html` are wired up and that keyboard input works.
