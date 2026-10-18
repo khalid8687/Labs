@@ -1,0 +1,199 @@
+:root {
+  --bg: #0f1220;
+  --panel: #181c2f;
+  --panel-soft: #212642;
+  --text: #f5f7ff;
+  --muted: #8b93b8;
+  --accent: #ff9f43;
+  --accent-strong: #ffb066;
+  --key: #242a45;
+  --key-hover: #2f3657;
+  --function: #3a4166;
+  --function-hover: #474f79;
+  --radius: 22px;
+  --shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+  font-family: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  padding: 2rem 1rem;
+  background: radial-gradient(circle at 20% 10%, #23294a 0%, var(--bg) 45%, #070810 100%);
+  color: var(--text);
+}
+
+.calculator {
+  width: min(100%, 360px);
+  padding: 1.25rem;
+  border-radius: var(--radius);
+  background: linear-gradient(160deg, #1d2238, var(--panel));
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.display {
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  gap: 0.4rem;
+  padding: 1rem 1.1rem;
+  margin-bottom: 1.1rem;
+  border-radius: calc(var(--radius) - 8px);
+  background: var(--panel-soft);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+}
+
+.display__history {
+  min-height: 1.3em;
+  max-width: 100%;
+  font-size: 0.95rem;
+  color: var(--muted);
+  white-space: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none;
+  letter-spacing: 0.02em;
+}
+
+.display__history::-webkit-scrollbar {
+  display: none;
+}
+
+.display__value {
+  max-width: 100%;
+  font-size: clamp(2rem, 9vw, 2.75rem);
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.display__value::-webkit-scrollbar {
+  display: none;
+}
+
+.display__value.is-error {
+  color: #ff6b6b;
+  font-size: 1.5rem;
+}
+
+.keys {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.65rem;
+}
+
+.key {
+  aspect-ratio: 1 / 1;
+  border: none;
+  border-radius: 16px;
+  background: var(--key);
+  color: var(--text);
+  font-size: 1.4rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.08s ease, box-shadow 0.15s ease;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+.key:hover {
+  background: var(--key-hover);
+}
+
+.key:active,
+.key.is-active {
+  transform: scale(0.95);
+}
+
+.key:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.key--function {
+  background: var(--function);
+  font-size: 1.15rem;
+}
+
+.key--function:hover {
+  background: var(--function-hover);
+}
+
+.key--operator {
+  background: rgba(255, 159, 67, 0.16);
+  color: var(--accent-strong);
+  font-size: 1.5rem;
+}
+
+.key--operator:hover {
+  background: rgba(255, 159, 67, 0.26);
+}
+
+.key--operator.is-selected {
+  background: var(--accent);
+  color: #1b1200;
+}
+
+.key--equals {
+  background: var(--accent);
+  color: #1b1200;
+  font-size: 1.6rem;
+}
+
+.key--equals:hover {
+  background: var(--accent-strong);
+}
+
+.hint {
+  max-width: 360px;
+  text-align: center;
+  font-size: 0.78rem;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.hint kbd {
+  display: inline-block;
+  padding: 0.05rem 0.35rem;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  font-family: inherit;
+  font-size: 0.75rem;
+}
+
+@media (max-width: 380px) {
+  .calculator {
+    padding: 1rem;
+  }
+
+  .keys {
+    gap: 0.5rem;
+  }
+
+  .key {
+    border-radius: 12px;
+    font-size: 1.2rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .key {
+    transition: none;
+  }
+}
