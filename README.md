@@ -3,6 +3,14 @@
 A small collection of experiments. Currently it contains a responsive calculator
 built with plain **HTML**, **CSS** and **JavaScript** — no frameworks, no build step.
 
+## Live preview
+
+**https://raw.githack.com/khalid8687/Labs/main/index.html**
+
+The repository is also ready for GitHub Pages: a `gh-pages` branch holds the site,
+so enabling *Settings → Pages → Deploy from a branch → `gh-pages`* publishes it at
+**https://khalid8687.github.io/Labs/**.
+
 ## Calculator
 
 [`index.html`](./index.html) · [`style.css`](./style.css) · [`script.js`](./script.js)
