@@ -3,20 +3,27 @@
 A small collection of experiments built with plain **HTML**, **CSS** and
 **JavaScript** — no frameworks, no build step.
 
-| App | Source | Live preview |
+| App | Source | Local preview |
 | --- | --- | --- |
-| Calculator | [`index.html`](./index.html) | <https://rawcdn.githack.com/khalid8687/Labs/gh-pages/index.html> |
-| Todo | [`todo/index.html`](./todo/index.html) | <https://rawcdn.githack.com/khalid8687/Labs/gh-pages/todo/index.html> |
+| Calculator | [`index.html`](./index.html) | <http://localhost:8000/> |
+| Todo | [`todo/index.html`](./todo/index.html) | <http://localhost:8000/todo/> |
 
-The live previews above are served from the **`gh-pages`** branch by the
-raw.githack CDN. On the first visit raw.githack shows a one-time
-*External Content Notice* — click **Open the page** and the app loads.
+## Publishing
 
-To publish with GitHub Pages instead, push to `gh-pages` and enable
-*Settings → Pages → Deploy from a branch → `gh-pages` → `/ (root)`*; the apps
-then appear at **https://khalid8687.github.io/Labs/** (calculator) and
-**https://khalid8687.github.io/Labs/todo/** (todo). This needs repository admin
-rights, so it is the one step that has to be done in the GitHub UI.
+`gh-pages` is the deploy branch; it mirrors the source and is ready to serve.
+
+**GitHub Pages is not enabled for this repository yet**, so no `github.io` URL
+resolves until the repository owner turns it on:
+
+1. *Settings → Pages → Source: Deploy from a branch*
+2. Branch **`gh-pages`**, folder **`/ (root)`**, then *Save*
+3. The apps then live at **https://khalid8687.github.io/Labs/** (calculator)
+   and **https://khalid8687.github.io/Labs/todo/** (todo)
+
+Any other static host works too — point it at the repository root or at the
+`gh-pages` branch; there is no build step. Plain file CDNs (raw.githack,
+jsDelivr, statically) are **not** usable as app URLs: they return HTML as
+`text/plain` or gate it behind an interstitial, so the page never renders.
 
 ## Calculator
 
