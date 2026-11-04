@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A simple, responsive todo app built with vanilla HTML, CSS and JavaScript. Your tasks are saved in your browser." />
+  <title>Todo</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app" aria-labelledby="app-title">
+    <header class="app__header">
+      <h1 class="app__title" id="app-title">Todo</h1>
+      <p class="app__subtitle">Changes save automatically in this browser.</p>
+    </header>
+
+    <form class="new-todo" id="todo-form" autocomplete="off">
+      <label class="sr-only" for="new-todo">What needs to be done?</label>
+      <input
+        class="new-todo__input"
+        id="new-todo"
+        name="new-todo"
+        type="text"
+        placeholder="What needs to be done?"
+        maxlength="200"
+        autofocus
+      />
+      <button class="new-todo__submit" type="submit" aria-label="Add task">Add</button>
+    </form>
+
+    <section class="panel" aria-label="Task list">
+      <ul class="todo-list" id="todo-list"></ul>
+      <p class="empty" id="empty-state">Nothing here yet. Add your first task above.</p>
+
+      <div class="toolbar">
+        <span class="toolbar__count" id="items-left" aria-live="polite">0 items left</span>
+
+        <div class="filters" role="group" aria-label="Filter tasks">
+          <button class="filter" type="button" data-filter="all" aria-pressed="true">All</button>
+          <button class="filter" type="button" data-filter="active" aria-pressed="false">Active</button>
+          <button class="filter" type="button" data-filter="completed" aria-pressed="false">Completed</button>
+        </div>
+
+        <button class="toolbar__clear" id="clear-completed" type="button">Clear completed</button>
+      </div>
+    </section>
+
+    <footer class="hint">
+      Tip: double-click a task to rename it. <kbd>Enter</kbd> saves, <kbd>Esc</kbd> cancels.
+      <a class="hint__link" href="../index.html">&larr; Back to the calculator</a>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

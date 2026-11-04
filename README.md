@@ -1,15 +1,17 @@
 # Labs
 
-A small collection of experiments. Currently it contains a responsive calculator
-built with plain **HTML**, **CSS** and **JavaScript** — no frameworks, no build step.
+A small collection of experiments built with plain **HTML**, **CSS** and
+**JavaScript** — no frameworks, no build step.
 
-## Live preview
+| App | Source | Live preview |
+| --- | --- | --- |
+| Calculator | [`index.html`](./index.html) | <https://raw.githack.com/khalid8687/Labs/main/index.html> |
+| Todo | [`todo/index.html`](./todo/index.html) | <https://raw.githack.com/khalid8687/Labs/main/todo/index.html> |
 
-**https://raw.githack.com/khalid8687/Labs/main/index.html**
-
-The repository is also ready for GitHub Pages: a `gh-pages` branch holds the site,
-so enabling *Settings → Pages → Deploy from a branch → `gh-pages`* publishes it at
-**https://khalid8687.github.io/Labs/**.
+The repository is also ready for GitHub Pages: a `gh-pages` branch holds the
+site, so enabling *Settings → Pages → Deploy from a branch → `gh-pages`*
+publishes it at **https://khalid8687.github.io/Labs/** (home) and
+**https://khalid8687.github.io/Labs/todo/** (todo app).
 
 ## Calculator
 
@@ -25,24 +27,44 @@ so enabling *Settings → Pages → Deploy from a branch → `gh-pages`* publish
 - Keyboard support: digits, `.`, `+ - * /`, `Enter`/`=`, `Backspace`, `Esc`
 - Responsive layout with a reduced-motion media query
 
-### Run it
+## Todo
 
-Open `index.html` directly in a browser, or serve the folder:
+[`todo/index.html`](./todo/index.html) · [`todo/style.css`](./todo/style.css) · [`todo/script.js`](./todo/script.js)
+
+### Features
+
+- Add tasks with the form (`Enter` or the **Add** button); blank input is ignored
+- Tick a checkbox to complete a task, or delete it with the `×` button
+- Double-click a task to rename it: `Enter` saves, `Esc` cancels, an empty title deletes it
+- Filters for **All / Active / Completed**, plus a live *n items left* counter
+- **Clear completed** removes finished tasks and disables itself when there are none
+- Tasks persist in `localStorage` (with a probe so private mode or full quota
+  degrade to in-memory state instead of crashing)
+- Accessible markup: labelled controls, `aria-pressed` filters, `aria-live` counter
+- Responsive layout with a reduced-motion media query
+
+## Run it
+
+Open either `index.html` in a browser, or serve the folder:
 
 ```bash
 python3 -m http.server 8000
-# then visit http://localhost:8000
+# then visit http://localhost:8000        (calculator)
+#      and  http://localhost:8000/todo/   (todo app)
 ```
 
-### Tests
+## Tests
 
-The calculator logic is isolated in a `Calculator` class and tested with Node's
-built-in test runner (no dependencies):
+Logic is isolated in small classes (`Calculator`, `TodoStore`) and tested with
+Node's built-in test runner (no dependencies):
 
 ```bash
-node --test tests/calculator.test.js tests/dom.test.js
+node --test tests/calculator.test.js tests/dom.test.js tests/todo.test.js tests/todo-dom.test.js
 ```
 
-`tests/calculator.test.js` covers the arithmetic state machine;
-`tests/dom.test.js` uses a tiny DOM stub to check that the buttons in
-`index.html` are wired up and that keyboard input works.
+- `tests/calculator.test.js` — the calculator's arithmetic state machine
+- `tests/dom.test.js` — calculator DOM wiring via a tiny inline DOM stub
+- `tests/todo.test.js` — `TodoStore`: add/toggle/rename/delete, filters, counts, persistence
+- `tests/todo-dom.test.js` — todo DOM wiring (rendering, editing, filters) using
+  the reusable stub in `tests/fake-dom.js`
+

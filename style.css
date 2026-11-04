@@ -177,6 +177,16 @@ body {
   font-size: 0.75rem;
 }
 
+.hint__link {
+  color: var(--accent-strong);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.hint__link:hover {
+  text-decoration: underline;
+}
+
 @media (max-width: 380px) {
   .calculator {
     padding: 1rem;
