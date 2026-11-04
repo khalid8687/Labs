@@ -8,10 +8,15 @@ A small collection of experiments built with plain **HTML**, **CSS** and
 | Calculator | [`index.html`](./index.html) | <https://raw.githack.com/khalid8687/Labs/main/index.html> |
 | Todo | [`todo/index.html`](./todo/index.html) | <https://raw.githack.com/khalid8687/Labs/main/todo/index.html> |
 
-The repository is also ready for GitHub Pages: a `gh-pages` branch holds the
-site, so enabling *Settings → Pages → Deploy from a branch → `gh-pages`*
-publishes it at **https://khalid8687.github.io/Labs/** (home) and
-**https://khalid8687.github.io/Labs/todo/** (todo app).
+The live previews above are served from the **`gh-pages`** branch by the
+raw.githack CDN. On the first visit raw.githack shows a one-time
+*External Content Notice* — click **Open the page** and the app loads.
+
+To publish with GitHub Pages instead, push to `gh-pages` and enable
+*Settings → Pages → Deploy from a branch → `gh-pages` → `/ (root)`*; the apps
+then appear at **https://khalid8687.github.io/Labs/** (calculator) and
+**https://khalid8687.github.io/Labs/todo/** (todo). This needs repository admin
+rights, so it is the one step that has to be done in the GitHub UI.
 
 ## Calculator
 
