@@ -5,8 +5,8 @@ A small collection of experiments built with plain **HTML**, **CSS** and
 
 | App | Source | Live preview |
 | --- | --- | --- |
-| Calculator | [`index.html`](./index.html) | <https://raw.githack.com/khalid8687/Labs/main/index.html> |
-| Todo | [`todo/index.html`](./todo/index.html) | <https://raw.githack.com/khalid8687/Labs/main/todo/index.html> |
+| Calculator | [`index.html`](./index.html) | <https://rawcdn.githack.com/khalid8687/Labs/gh-pages/index.html> |
+| Todo | [`todo/index.html`](./todo/index.html) | <https://rawcdn.githack.com/khalid8687/Labs/gh-pages/todo/index.html> |
 
 The live previews above are served from the **`gh-pages`** branch by the
 raw.githack CDN. On the first visit raw.githack shows a one-time
